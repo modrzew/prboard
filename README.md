@@ -31,6 +31,14 @@ yarn build
 
 Copy `src/config.js.example` to `src/config.js` and fill your values.
 
+## Continuous delivery
+
+In one terminal window, run `yarn prod`. This will run [serve](https://github.com/zeit/serve),
+and restart every time file changes using [nodemon](https://github.com/remy/nodemon).
+
+In another window, run `yarn cd`. This will check every 5 minutes for changes in
+upstream git branch, and pull & rebuild when necessary.
+
 ## License
 
 See [LICENSE](LICENSE).
