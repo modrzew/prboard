@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './App.css';
 import { getPrs } from './github';
 import PullRequests from './PullRequests';
+import styles from './App.css';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <PullRequests prs={this.state.prs}/>
       </div>
     );

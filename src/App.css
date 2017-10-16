@@ -1,28 +1,20 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html {
+  font-size: 12px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+  background: linear-gradient(left, #03becc, #6348e1);
+  font-family: 'Open Sans', Helvetica Neue, Arial, sans-serif;
+  font-size: 12px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+a {
+  color: #00c4cc;
+  text-decoration: none;
 }
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+a:hover {
+  color: #00e7cc;
+  text-decoration: underline;
 }

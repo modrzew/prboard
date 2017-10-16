@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.badge {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  border: solid 3px white;
+  background: #00c4cc;
+  position: relative;
+  margin-left: -1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}

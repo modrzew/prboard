@@ -1,28 +1,6 @@
 .cards {
   display: flex;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-}
-
-.card {
-  padding: 10px;
-  margin: 10px;
-  border: solid 1px black;
-  width: 300px;
-  min-height: 100px;
-  height: auto;
-  position: relative;
-}
-
-.avatar {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-}
-
-.list {
-  margin: 0;
-  padding-left: 10px;
-  z-index: 2;
 }
