@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background: linear-gradient(left, #03becc, #6348e1);
+  background: linear-gradient(to right, #03becc, #6348e1);
   font-family: 'Open Sans', Helvetica Neue, Arial, sans-serif;
   font-size: 12px;
 }

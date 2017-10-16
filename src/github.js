@@ -13,7 +13,6 @@ export function getPrs() {
   return fetch(`https://api.github.com/repos/${REPO}/issues?labels=${labels}`, { headers: headers })
     .then(response => response.json())
     .then(response => {
-      console.log(response);
       const prs = response.map(pr => {
         const ptal = pr.labels.some(label => label.name === PTAL_LABEL);
         return {
@@ -25,7 +24,6 @@ export function getPrs() {
           url: pr.html_url,
         };
       });
-      console.log(prs);
       return prs;
     });
 }
