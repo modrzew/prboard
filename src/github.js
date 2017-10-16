@@ -1,20 +1,28 @@
-export function getPrs(token) {
+import {
+  FILTER_LABELS,
+  PTAL_LABEL,
+  REPO,
+  TOKEN,
+} from './config';
+
+export function getPrs() {
   const headers = new Headers({
-    'Authorization': `token ${token}`,
+    'Authorization': `token ${TOKEN}`,
   });
-  return fetch('https://api.github.com/repos/modrzew/prboard/issues?labels=team', { headers: headers })
+  const labels = FILTER_LABELS.join(',');
+  return fetch(`https://api.github.com/repos/${REPO}/issues?labels=${labels}`, { headers: headers })
     .then(response => response.json())
     .then(response => {
       console.log(response);
       const prs = response.map(pr => {
-        const ptal = pr.labels.some(label => label.name === 'ptal');
+        const ptal = pr.labels.some(label => label.name === PTAL_LABEL);
         return {
           number: pr.number,
           title: pr.title,
           author: pr.user,
           assignees: pr.assignees,
           ptal,
-          url: pr.pull_request.url,
+          url: pr.html_url,
         };
       });
       console.log(prs);
