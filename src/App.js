@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import './App.css';
 import { getPrs } from './fetch';
 import token from './token';
+import PullRequests from './PullRequests';
 
-export default class App extends Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,14 +22,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <ul>
-          {this.state.prs.map(pr => (
-            <li key={pr.number}>
-              <img src={pr.author.avatar_url} width="32" alt={pr.author.login}/>
-              {pr.title}: {pr.ptal && 'ptal'}
-            </li>
-          ))}
-        </ul>
+        <PullRequests prs={this.state.prs}/>
       </div>
     );
   }

@@ -5,6 +5,7 @@ export function getPrs(token) {
   return fetch('https://api.github.com/repos/modrzew/prboard/issues?labels=team', { headers: headers })
     .then(response => response.json())
     .then(response => {
+      console.log(response);
       const prs = response.map(pr => {
         const ptal = pr.labels.some(label => label.name === 'ptal');
         return {
@@ -13,6 +14,7 @@ export function getPrs(token) {
           author: pr.user,
           assignees: pr.assignees,
           ptal,
+          url: pr.pull_request.url,
         };
       });
       console.log(prs);
