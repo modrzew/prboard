@@ -11,10 +11,11 @@ function check() {
 }
 
 function run() {
-  console.log('Resetting repo');
-  execSync('git reset --hard');
   console.log('Fetching updates');
-  execSync('git pull --rebase origin master');
+  execSync('git fetch origin master');
+  console.log('Resetting repo');
+  execSync('git checkout -- .');
+  execSync('git reset --hard origin/master');
   console.log('Upgrading');
   execSync('yarn install');
   console.log('Building');
@@ -25,5 +26,7 @@ console.log('Started!');
 setInterval(function() {
   if (check()) {
     run();
+  } else {
+    console.log('No changes');
   }
 }, 5 * 60 * 1000);
