@@ -1,0 +1,6 @@
+# web
+language: node_js
+node_js:
+  - "node"
+script:
+  - ./node_modules/.bin/eslint .
