@@ -8,13 +8,13 @@ export default class Card extends React.Component {
     const { user, prs } = this.props;
     return (
       <div className={styles.card} key={user.login}>
-        <Avatar login={user.login} url={user.avatar_url} count={prs.length}/>
+        <Avatar login={user.login} url={user.avatar_url} count={prs.length} />
         <ul className={styles.list}>
-          {prs.map(pr =>
+          {prs.map(pr => (
             <li key={pr.number}>
               {pr.title} (<a href={pr.url}>#{pr.number}</a>)
             </li>
-          )}
+          ))}
         </ul>
       </div>
     );
