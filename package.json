@@ -50,7 +50,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "prod": "nodemon -x 'serve -s build'",
-    "cd": "node poorMansCD.js"
+    "cd": "node poorMansCD.js",
+    "lint": "yarn eslint src config *.js"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -100,6 +101,7 @@
     }
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "all"
   }
 }

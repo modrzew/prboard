@@ -1,16 +1,13 @@
-import {
-  FILTER_LABELS,
-  PTAL_LABEL,
-  REPO,
-  TOKEN,
-} from './config';
+import { FILTER_LABELS, PTAL_LABEL, REPO, TOKEN } from './config';
 
 export function getPrs() {
   const headers = new Headers({
-    'Authorization': `token ${TOKEN}`,
+    Authorization: `token ${TOKEN}`,
   });
   const labels = FILTER_LABELS.join(',');
-  return fetch(`https://api.github.com/repos/${REPO}/issues?labels=${labels}`, { headers: headers })
+  return fetch(`https://api.github.com/repos/${REPO}/issues?labels=${labels}`, {
+    headers: headers,
+  })
     .then(response => response.json())
     .then(response => {
       const prs = response.map(pr => {

@@ -21,7 +21,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <PullRequests prs={this.state.prs}/>
+        <PullRequests prs={this.state.prs} />
       </div>
     );
   }
