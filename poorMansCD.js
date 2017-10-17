@@ -1,7 +1,12 @@
 const execSync = require('child_process').execSync;
 
+function log(msg) {
+  const time = new Date().toTimeString();
+  console.log(`${time} ${msg}`);
+}
+
 function check() {
-  console.log('Fetching updates');
+  log('Fetching updates');
   execSync('git fetch origin master');
   const local = execSync('git rev-parse @')
     .toString()
@@ -13,23 +18,24 @@ function check() {
 }
 
 function rebuild() {
-  console.log('Resetting repo');
+  log('Resetting repo');
   execSync('git checkout -- .');
   execSync('git reset --hard origin/master');
-  console.log('Upgrading');
+  log('Upgrading');
   execSync('yarn install');
-  console.log('Building');
+  log('Building');
   execSync('yarn build');
+  log('Update done');
 }
 
 function run() {
   if (check()) {
     rebuild();
   } else {
-    console.log('No changes');
+    log('No changes');
   }
 }
 
-console.log('Started!');
+log('Started!');
 setInterval(run, 5 * 60 * 1000);
 run();
