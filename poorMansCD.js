@@ -1,6 +1,8 @@
 const execSync = require('child_process').execSync;
 
 function check() {
+  console.log('Fetching updates');
+  execSync('git fetch origin master');
   const local = execSync('git rev-parse @')
     .toString()
     .trim();
@@ -10,9 +12,7 @@ function check() {
   return local !== upstream;
 }
 
-function run() {
-  console.log('Fetching updates');
-  execSync('git fetch origin master');
+function rebuild() {
   console.log('Resetting repo');
   execSync('git checkout -- .');
   execSync('git reset --hard origin/master');
@@ -22,11 +22,14 @@ function run() {
   execSync('yarn build');
 }
 
-console.log('Started!');
-setInterval(function() {
+function run() {
   if (check()) {
-    run();
+    rebuild();
   } else {
     console.log('No changes');
   }
-}, 5 * 60 * 1000);
+}
+
+console.log('Started!');
+setInterval(run, 5 * 60 * 1000);
+run();
