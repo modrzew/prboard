@@ -1,3 +1,4 @@
+import * as classNames from 'classnames';
 import React from 'react';
 
 import Avatar from './Avatar';
@@ -11,7 +12,13 @@ export default class Card extends React.Component {
         <Avatar login={user.login} url={user.avatar_url} count={prs.length} />
         <ul className={styles.list}>
           {prs.map(pr => (
-            <li key={pr.number}>
+            <li
+              key={pr.number}
+              className={classNames({
+                [styles.warning]: pr.daysOpen > 2 && pr.daysOpen < 6,
+                [styles.error]: pr.daysOpen >= 6,
+              })}
+            >
               {pr.title} (<a href={pr.url}>#{pr.number}</a>)
             </li>
           ))}

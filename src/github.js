@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 import { FILTER_LABELS, PTAL_LABEL, REPO, TOKEN } from './config';
 
 export function getPrs() {
@@ -10,6 +12,7 @@ export function getPrs() {
   })
     .then(response => response.json())
     .then(response => {
+      console.log(response);
       const prs = response.map(pr => {
         const ptal = pr.labels.some(label => label.name === PTAL_LABEL);
         return {
@@ -19,6 +22,7 @@ export function getPrs() {
           assignees: pr.assignees,
           ptal,
           url: pr.html_url,
+          daysOpen: moment().diff(pr.created_at, 'd'),
         };
       });
       return prs;

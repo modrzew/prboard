@@ -19,3 +19,11 @@
   padding: 1rem 0.75rem;
   border-top: solid 1px #dbdcdd;
 }
+
+.warning {
+  background: moccasin;
+}
+
+.error {
+  background: lightpink;
+}
