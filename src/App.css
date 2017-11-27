@@ -2,12 +2,16 @@
 
 html {
   font-size: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background: linear-gradient(to right, #03becc, #6348e1);
   font-family: 'Open Sans', Helvetica Neue, Arial, sans-serif;
   font-size: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 a {

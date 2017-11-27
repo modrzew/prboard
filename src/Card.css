@@ -1,7 +1,7 @@
 .card {
-  margin: 1rem;
+  margin: 0.5rem;
   border-radius: 0.75rem;
-  width: 25rem;
+  width: calc(25% - 1rem);
   min-height: 100px;
   height: auto;
   position: relative;
