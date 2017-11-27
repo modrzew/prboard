@@ -11,8 +11,10 @@ export const Label = ({ daysOpen }) => {
     [styles.warning]: daysOpen > 2 && daysOpen < 6,
     [styles.error]: daysOpen >= 6,
   });
+  const divider = daysOpen < 6 ? 5 : 9;
+  const opacity = `${(daysOpen / divider).toFixed(2)}`;
   return (
-    <div className={className}>
+    <div className={className} style={{ opacity }}>
       <b>{daysOpen}</b> days
     </div>
   );
