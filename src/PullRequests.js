@@ -28,7 +28,7 @@ export default class PullRequests extends React.Component {
     return (
       <div className={styles.cards}>
         {Object.keys(grouped)
-          .sort((a, b) => grouped[a].length < grouped[b].length)
+          .sort((a, b) => grouped[b].length - grouped[a].length)
           .map(login => {
             const user = users[login];
             return <Card key={user.login} user={user} prs={grouped[login]} />;
