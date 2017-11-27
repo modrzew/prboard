@@ -18,12 +18,11 @@
 .list li {
   padding: 1rem 0.75rem;
   border-top: solid 1px #dbdcdd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.warning {
-  background: moccasin;
-}
-
-.error {
-  background: lightpink;
+.label {
+  flex-shrink: 0;
 }

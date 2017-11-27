@@ -1,7 +1,7 @@
-import * as classNames from 'classnames';
 import React from 'react';
 
 import Avatar from './Avatar';
+import { Label } from './Label';
 import styles from './Card.css';
 
 export default class Card extends React.Component {
@@ -12,14 +12,13 @@ export default class Card extends React.Component {
         <Avatar login={user.login} url={user.avatar_url} count={prs.length} />
         <ul className={styles.list}>
           {prs.map(pr => (
-            <li
-              key={pr.number}
-              className={classNames({
-                [styles.warning]: pr.daysOpen > 2 && pr.daysOpen < 6,
-                [styles.error]: pr.daysOpen >= 6,
-              })}
-            >
-              {pr.title} (<a href={pr.url}>#{pr.number}</a>)
+            <li className={styles.row} key={pr.number}>
+              <div>
+                {pr.title} (<a href={pr.url}>#{pr.number}</a>)
+              </div>
+              <div className={styles.label}>
+                <Label daysOpen={pr.daysOpen} />
+              </div>
             </li>
           ))}
         </ul>
