@@ -1,4 +1,3 @@
 export const REPO = 'org/repo';
 export const TOKEN = 's3cr3t'; // obtain from https://github.com/settings/tokens
 export const FILTER_LABELS = ['feature', 'bug'];
-export const PTAL_LABEL = 'ptal';

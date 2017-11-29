@@ -8,10 +8,10 @@ function groupByAssignees(prs) {
   const users = {};
   const grouped = {};
   prs.forEach(pr => {
-    pr.assignees.forEach(user => {
-      if (!pr.ptal) {
-        return;
-      }
+    if (pr.reviewers == null) {
+      return;
+    }
+    pr.reviewers.forEach(user => {
       if (typeof users[user.login] === 'undefined') {
         users[user.login] = user;
         grouped[user.login] = [];
