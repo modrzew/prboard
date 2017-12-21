@@ -1,4 +1,5 @@
 import React from 'react';
+import Masonry from 'react-masonry-component';
 
 import Card from './Card';
 
@@ -26,14 +27,18 @@ export default class PullRequests extends React.Component {
   render() {
     const { users, grouped } = groupByAssignees(this.props.prs);
     return (
-      <div className={styles.cards}>
+      <Masonry
+        className={styles.cards}
+        elementType="div"
+        options={{ transitionDuration: 0 }}
+      >
         {Object.keys(grouped)
           .sort((a, b) => grouped[b].length - grouped[a].length)
           .map(login => {
             const user = users[login];
             return <Card key={user.login} user={user} prs={grouped[login]} />;
           })}
-      </div>
+      </Masonry>
     );
   }
 }
