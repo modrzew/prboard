@@ -23,7 +23,7 @@ export async function getPrs() {
       },
     );
     const users = await response.json();
-    reviewers[pr.number] = users;
+    reviewers[pr.number] = users.users;
   });
   await Promise.all(promises);
   return prs.map(pr => {
