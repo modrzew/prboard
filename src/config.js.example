@@ -1,3 +1,3 @@
-export const REPO = 'org/repo';
+export const ORGANIZATION = 'org-name';
+export const TEAM = 'team-slug';
 export const TOKEN = 's3cr3t'; // obtain from https://github.com/settings/tokens
-export const FILTER_LABELS = ['feature', 'bug'];
