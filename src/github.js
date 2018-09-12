@@ -30,7 +30,9 @@ export async function getPrs() {
   const members = loginsResponse.data.organization.team.members.nodes;
   const subqueries = members.map(
     member => `
-      ${member.login}: search(type:ISSUE,query:"is:open is:pr review-requested:${member.login} sort:created-asc user:${ORGANIZATION}",first:100) {
+      ${normalizeLogin(
+        member.login,
+      )}: search(type:ISSUE,query:"is:open is:pr review-requested:${member.login} sort:created-asc user:${ORGANIZATION}",first:100) {
         nodes {
           ...PrFields
         }
@@ -59,9 +61,13 @@ export async function getPrs() {
   const results = members
     .map(member => ({
       member,
-      prs: prsResponse.data[member.login].nodes,
+      prs: prsResponse.data[normalizeLogin(member.login)].nodes,
     }))
     .filter(r => r.prs.length > 0)
     .sort((a, b) => b.prs.length - a.prs.length);
   return results;
+}
+
+function normalizeLogin(login) {
+  return login.replace(/[^a-zA-Z]/g, '');
 }
